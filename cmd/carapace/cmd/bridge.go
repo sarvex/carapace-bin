@@ -65,6 +65,8 @@ func createCmd(command string, engine string) *cobra.Command {
 			switch engine {
 			case "argcomplete":
 				return bridge.ActionArgcomplete(command)
+			case "bash":
+				return bridge.ActionBash(command)
 			case "cobra":
 				return bridge.ActionCobra(command)
 			case "fish":

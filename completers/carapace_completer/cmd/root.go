@@ -57,6 +57,7 @@ func flagCmd(args []string) *cobra.Command {
 			case 1:
 				return carapace.ActionValuesDescribed(
 					"argcomplete", "kislyuk/argcomplete based completion like gcloud",
+					"bash", "completions registered in bash shell",
 					"cobra", "spf13/cobra based completions like docker and kubectl",
 					"fish", "completions registered in fish shell",
 					"posener", "posener/complete based completion like hashicorp tools",
