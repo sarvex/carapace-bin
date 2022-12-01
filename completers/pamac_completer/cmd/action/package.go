@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"github.com/rsteube/carapace"
+	"github.com/rsteube/carapace/pkg/style"
 )
 
 func ActionPackageGroups() carapace.Action {
@@ -16,8 +17,8 @@ func ActionPackageGroups() carapace.Action {
 		for _, line := range lines[:len(lines)-1] {
 			vals = append(vals, line, "[group]")
 		}
-		return carapace.ActionValuesDescribed(vals...)
-	})
+		return carapace.ActionValuesDescribed(vals...).Style(style.Yellow)
+	}).Tag("groups")
 }
 
 func ActionPackageSearch() carapace.Action {
@@ -31,11 +32,12 @@ func ActionPackageSearch() carapace.Action {
 
 			current := ""
 			packages := make(map[string][]string)
+			installed := make(map[string]bool)
 			for _, line := range lines[:len(lines)-1] {
-				if r.MatchString(line) {
-					matches := r.FindStringSubmatch(line)
+				if matches := r.FindStringSubmatch(line); matches != nil {
 					current = matches[1]
 					packages[current] = []string{fmt.Sprintf("[%v]", matches[4])}
+					installed[current] = len(matches[2]) != 0
 				} else {
 					packages[current] = append(packages[current], strings.TrimSpace(line))
 				}
@@ -43,9 +45,13 @@ func ActionPackageSearch() carapace.Action {
 
 			vals := make([]string, 0)
 			for key, value := range packages {
-				vals = append(vals, key, strings.Join(value, " "))
+				s := style.Default
+				if installed[key] {
+					s = style.Blue
+				}
+				vals = append(vals, key, strings.Join(value, " "), s)
 			}
-			return carapace.ActionValuesDescribed(vals...)
+			return carapace.ActionStyledValuesDescribed(vals...)
 		})
 	})
 }
