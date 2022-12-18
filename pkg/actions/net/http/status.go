@@ -83,5 +83,5 @@ func ActionStatusCodes() carapace.Action {
 		default:
 			return ""
 		}
-	})
+	}).Tag("status codes")
 }

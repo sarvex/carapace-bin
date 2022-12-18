@@ -71,7 +71,7 @@ func ActionRequestHeaderNames() carapace.Action {
 		"Upgrade", "Ask the server to upgrade to another protocol. Must not be used in HTTP/2.[13]",
 		"Via", "Informs the server of proxies through which the request was sent.",
 		"Warning", "A general warning about possible problems with the entity body.",
-	)
+	).Tag("request headers")
 }
 
 // ActionRequestHeaderValues completes values for given request header
@@ -147,7 +147,7 @@ func ActionMediaTypes() carapace.Action {
 			"text/plain", style.ForPathExt(".txt"),
 			"text/xml", style.ForPathExt(".xml"),
 		)
-	})
+	}).Tag("media types")
 }
 
 // ActionContentEncodingTokens completes content encoding tokens
@@ -164,7 +164,7 @@ func ActionContentEncodingTokens() carapace.Action {
 		"identity", "No transformation is used.",
 		"pack200-gzip", "Network Transfer Format for Java Archives",
 		"zstd", "Zstandard compression",
-	)
+	).Tag("content encoding tokens")
 }
 
 // ActionTransferEncodingTokens completes transfer encoding tokens
@@ -177,7 +177,7 @@ func ActionTransferEncodingTokens() carapace.Action {
 		"compress", "UNIX \"compress\" data format",
 		"deflate", "\"deflate\" compressed data",
 		"gzip", "GZIP file format",
-	)
+	).Tag("transfer encoding tokens")
 }
 
 // ActionCacheControlRequestDirectives completes Cache-Control directives for a request
@@ -200,7 +200,7 @@ func ActionCacheControlRequestDirectives() carapace.Action {
 		default:
 			return carapace.ActionValues("")
 		}
-	})
+	}).Tag("cache control request directives")
 }
 
 // ActionUserAgents completes common user agents
@@ -231,5 +231,5 @@ func ActionUserAgents() carapace.Action {
 		"curl/7.35.0", "Curl",
 		"Wget/1.15 (linux-gnu)", "Wget",
 		"Lynx/2.8.8pre.4 libwww-FM/2.14 SSL-MM/1.4.1 GNUTLS/2.12.23", "Lynx",
-	)
+	).Tag("user agents")
 }

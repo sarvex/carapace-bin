@@ -31,5 +31,5 @@ func ActionPorts() carapace.Action {
 		"3306", "mysql",
 		"8080", "http alternative",
 		"8443", "https alternative",
-	)
+	).Tag("ports")
 }

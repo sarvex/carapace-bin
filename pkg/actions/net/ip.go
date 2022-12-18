@@ -32,7 +32,7 @@ func ActionIpv4Addresses() carapace.Action {
 		default:
 			return carapace.ActionValues()
 		}
-	})
+	}).Tag("ipv4 addresses")
 }
 
 // ActionSubnets completes subnets
@@ -56,5 +56,5 @@ func ActionSubnets() carapace.Action {
 		"18", "255.255.192.0 - 16384",
 		"17", "255.255.128.0 - 32768",
 		"16", "255.255.0.0 - 65536",
-	)
+	).Tag("subnets")
 }
