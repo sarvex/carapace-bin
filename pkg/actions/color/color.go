@@ -268,7 +268,7 @@ func Action256Colors() carapace.Action {
 		"255", "Grey85", style.XTerm256Color(253),
 		"256", "Grey89", style.XTerm256Color(254),
 		"257", "Grey93", style.XTerm256Color(255),
-	)
+	).Tag("256 colors")
 }
 
 // ActionHexColors completes hex color codes
@@ -536,7 +536,7 @@ func ActionHexColors() carapace.Action {
 			"#e4e4e4", "Grey89", style.XTerm256Color(254),
 			"#eeeeee", "Grey93", style.XTerm256Color(255),
 		)
-	})
+	}).Tag("hex colors")
 }
 
 // ActionXtermColorNames completes xterm color names
@@ -563,5 +563,5 @@ func ActionXtermColorNames() carapace.Action {
 			"Aqua", style.XTerm256Color(14),
 			"White", style.XTerm256Color(15),
 		)
-	})
+	}).Tag("xterm color names")
 }
