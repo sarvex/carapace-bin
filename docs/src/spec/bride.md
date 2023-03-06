@@ -35,7 +35,7 @@ completion:
 [Completers](../completers.md) and [Specs](../spec.md) registered in [rsteube/carapace-bin] can be bridged with the [`bridge.CarapaceBin`] macro:
 
 ```yaml
-name: gh
+name: gh-alias
 description: Work seamlessly with GitHub from the command line
 completion:
   positionalany: ["$_bridge.CarapaceBin(gh)"]
