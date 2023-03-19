@@ -19,3 +19,22 @@ func ActionHookTypes() carapace.Action {
 		"post-rewrite",
 	).Tag("hook types")
 }
+
+// ActionHookStages completes hook stages
+//
+//	commit
+//	push
+func ActionHookStages() carapace.Action {
+	return carapace.ActionValues(
+		"commit",
+		"merge-commit",
+		"prepare-commit-msg",
+		"commit-msg",
+		"post-commit",
+		"manual",
+		"post-checkout",
+		"push",
+		"post-merge",
+		"post-rewrite",
+	).Tag("hook stages")
+}
